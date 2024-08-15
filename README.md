@@ -12,7 +12,25 @@
 This is the open-source code repository for the internal ParliAI project, allowing other developers to replicate non-sensitive features of the project and to encourage future collaboration and development in this space. Please do contact us at [datasciencecampus@ons.gov.uk](datasciencecampus@ons.gov.uk) to discuss this or any of our other projects.
 
 ## Installation
-Details to follow...
+
+You are strongly recommended to install resources into a virtual environment. Project setup can be achieved as follows:
+
+``` bash
+$ git clone https://github.com/datasciencecampus/parliai-public.git
+$ cd parliai-public
+$ python -m venv venv
+$ source venv/bin/activate
+$ python -m pip install --upgrade pip
+$ python -m pip install .
+```
+
+> \[!NOTE\] If you intend on doing any development work, please install the package as editable (`-e`) and with the `dev` optional dependencies:
+>
+> ``` bash
+> $ python -m pip install -e ".[dev]"
+> ```
+>
+> Moreover, once you have installed the package, please install the pre-commit hooks. These hooks help us to ensure repository security and a consistent code style.
 
 ### Pre-commit actions
 This repository contains a configuration of pre-commit hooks. These are language agnostic and focussed on repository security (such as detection of passwords and API keys). If approaching this project as a developer, you are encouraged to install and enable `pre-commits` by running the following in your shell:
