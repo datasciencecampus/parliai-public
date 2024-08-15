@@ -1,13 +1,18 @@
+<!--- Badges start --->
+<img src="https://img.shields.io/badge/repo%20status-in%20development%20(caution)-red" alt="Repository status is still in development (caution required)"/>
+
+<!--- Badges end --->
+
 <img src="https://github.com/datasciencecampus/awesome-campus/blob/master/ons_dsc_logo.png">
 
 # Repository name
 
 # Introduction
 ## About
-*Describe what this repo contains and what the project is.*
+This is the open-source code repository for the internal ParliAI project, allowing other developers to replicate non-sensitive features of the project and to encourage future collaboration and development in this space. Please do contact us at [datasciencecampus@ons.gov.uk](datasciencecampus@ons.gov.uk) to discuss this or any of our other projects.
 
 ## Installation
-*Describe technical set-up. Such as the required dependencies.*
+Details to follow...
 
 ### Pre-commit actions
 This repository contains a configuration of pre-commit hooks. These are language agnostic and focussed on repository security (such as detection of passwords and API keys). If approaching this project as a developer, you are encouraged to install and enable `pre-commits` by running the following in your shell:
@@ -21,22 +26,15 @@ This repository contains a configuration of pre-commit hooks. These are language
       ```
       pre-commit install
       ```
-Once pre-commits are activated, whenever you commit to this repository a series of checks will be executed. The pre-commits include checking for security keys, large files and unresolved merge conflict headers. The use of active pre-commits are highly encouraged and the given hooks can be expanded with Python or R specific hooks that can automate the code style and linting. For example, the `flake8` and `black` hooks are useful for maintaining consistent Python code formatting.
+Once pre-commits are activated, whenever you commit to this repository a series of checks will be executed. The pre-commits include checking for security keys, large files and unresolved merge conflict headers. The use of active pre-commits are highly encouraged and the given hooks can be expanded with Python or R specific hooks that can automate the code style and linting. We are using `ruff` to ensure consistent Python code formatting.
 
 **NOTE:** Pre-commit hooks execute Python, so it expects a working Python build.
 
 ## Usage
-*Explain how to use the things in the repo.*
+Details to follow...
 
 ### Workflow
-*You may wish to consider generating a graph to show your project workflow. GitHub markdown provides native support for [mermaid](https://mermaid.js.org/syntax/flowchart.html), an example of which is provided below:*
-
-```mermaid
-flowchart TD
-   id1[(Some data)] --> id2(Some processing)
-   id3[(More data)] --> id2
-   id2 --> id4[Some output]
-```
+Details to follow...
 
 
 # Data Science Campus
