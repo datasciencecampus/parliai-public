@@ -1,0 +1,27 @@
+urls = [
+    "https://www.theyworkforyou.com/debates",
+    "https://www.theyworkforyou.com/lords",
+    "https://www.theyworkforyou.com/whall",
+    "https://www.theyworkforyou.com/wms",
+    "https://www.theyworkforyou.com/sp",
+    "https://www.theyworkforyou.com/ni",
+    "https://www.theyworkforyou.com/senedd",
+]
+
+prompt = """
+You are a skim reader, specialising in capturing the key points in
+frenetic parliamentary debate.
+Using only the text provided, you will extract ONLY sentences verbatim
+which exactly match to any of these {keywords}.
+Do not paraphrase.
+Do not return any answer or message if there isn't anything relevant in the text.
+Do not include any political asides which do not reference any of these {keywords}.
+
+Now extract all relevant content from the following text:
+
+{text}
+"""
+
+outdir = "out/theyworkforyou"
+
+llm_name = "gemma:2b"
