@@ -5,7 +5,7 @@
 
 <img src="https://github.com/datasciencecampus/awesome-campus/blob/master/ons_dsc_logo.png">
 
-# Repository name
+# ParliAI (Public edition)
 
 # Introduction
 ## About
