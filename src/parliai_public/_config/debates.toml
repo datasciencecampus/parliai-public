@@ -24,4 +24,4 @@ Now extract all relevant content from the following text:
 
 outdir = "out/theyworkforyou"
 
-llm_name = "gemma:2b"
+llm_name = "gemma"
