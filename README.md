@@ -49,7 +49,37 @@ Once pre-commits are activated, whenever you commit to this repository a series 
 **NOTE:** Pre-commit hooks execute Python, so it expects a working Python build.
 
 ## Usage
-Details to follow...
+[theyworkforyou.com](https://www.theyworkforyou.com)
+
+By default, parliamentary content from the previous day (and anything so far on the current day) will be reviewed. However, a number of flags are available for use from the command line. The main time filtering behaviours can be summarised as follows:
+
+- previous day (default) e.g.
+
+``` bash
+$ python scripts/theyworkforyou.py
+```
+
+- specify day with optional end date (`-d` or `--end`) e.g.
+
+``` bash
+$ python scripts/theyworkforyou.py -d 2024-05-20
+```
+
+- range from start date (`-s` or `--start`) to end date e.g.
+
+``` bash
+$ python scripts/theyworkforyou.py -s 2024-05-20 -d 2024-05-24
+```
+
+- look behind from end date (optional) by a specified window of days (inclusive; `-n` or `--window`) e.g.
+
+``` bash
+$ python scripts/theyworkforyou.py -d 2024-05-24 -n 3
+```
+
+Additionally, the `-w` or `--weekly` flag can be used to generate a report for the previous week e.g. a Wednesday to a Wednesday. The `-f` or `--form` flag can also be applied to specify a preferred date format (other than the default of %Y-%m-%d).
+
+This demo is tested on the Gemma (1st version) model. It assumes that [Ollama](https://www.ollama.com) has been installed locally and the required model has been downloaded before using ParliAI.
 
 ### Workflow
 Details to follow...

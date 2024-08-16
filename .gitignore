@@ -1,7 +1,7 @@
 ### Project structure ###
 data/*
-outputs/*
 .vscode
+out/*
 
 ### Contentious file types (can be removed at user discretion) ###
 
