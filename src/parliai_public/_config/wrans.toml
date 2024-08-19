@@ -4,10 +4,10 @@ prompt = """
 You are a skim reader, specialising in capturing the key points in
 written parliamentary communications.
 Using only the text provided, you will extract ONLY sentences verbatim
-which exactly match to any of these {keywords}.
+which exactly reference {keywords}. You may include sentences before and/or after
+that provide useful and relevant context.
 Do not paraphrase.
 Do not return any answer or message if there isn't anything relevant in the text.
-Do not include any political asides which do not reference any of these {keywords}.
 
 Now extract all relevant content from the following text:
 
