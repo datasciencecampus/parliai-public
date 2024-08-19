@@ -13,7 +13,11 @@ This is the open-source code repository for the internal ParliAI project, allowi
 
 ## Installation
 
-You are strongly recommended to install resources into a virtual environment. Project setup can be achieved as follows:
+This demo is tested on the Gemma (1st release) model. It assumes that [Ollama](https://www.ollama.com) has been installed locally and the required model has been downloaded before using ParliAI. This is very easy to do and versions are available for Mac OS, Windows and Linux. For further information on installation and model downloads, you might like to refer to the [Ollama GitHub page](https://github.com/ollama/ollama).
+
+Internally, we have tended to use the Vertex AI microservice in Google Cloud Platform (GCP) to access both the Gemini and Gemma family of Large Language Models. However, Ollama gives free access to Gemma and doesn't require others to have a GCP account and architecture. We hope to add the feature back to the public repo to support developers who already have GCP access.
+
+You are strongly recommended to install project resources into a virtual environment. Project setup can be achieved as follows:
 
 ``` bash
 $ git clone https://github.com/datasciencecampus/parliai-public.git
@@ -79,10 +83,8 @@ $ python scripts/theyworkforyou.py -d 2024-05-24 -n 3
 
 Additionally, the `-w` or `--weekly` flag can be used to generate a report for the previous week e.g. a Wednesday to a Wednesday. The `-f` or `--form` flag can also be applied to specify a preferred date format (other than the default of %Y-%m-%d).
 
-This demo is tested on the Gemma (1st version) model. It assumes that [Ollama](https://www.ollama.com) has been installed locally and the required model has been downloaded before using ParliAI.
-
 ### Workflow
-Details to follow...
+![Illustrative technical workflow](docs/images/parliai-public-workflow.png)
 
 
 # Data Science Campus
