@@ -2,6 +2,7 @@
 data/*
 .vscode
 out/*
+docs/.DS_Store
 
 ### Contentious file types (can be removed at user discretion) ###
 
@@ -282,9 +283,6 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
-
-# pkgdown site
-docs/
 
 # translation temp files
 po/*~
