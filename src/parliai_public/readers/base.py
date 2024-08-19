@@ -547,6 +547,7 @@ class BaseReader(metaclass=abc.ABCMeta):
                 f"Publication date: {today}",
                 f"Period covered: {period}",
                 f"Search terms: {self.terms}",
+                f"Model used: {self.llm_name}",
                 "\n".join((source, *links)),
             )
         )

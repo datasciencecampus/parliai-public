@@ -382,12 +382,21 @@ class Debates(BaseReader):
         title = f"## {label}: [{transcript['title']}]({transcript['url']})"
         processed = []
         for speech in transcript["speeches"]:
-            if speech["name"] and "response" in speech:
-                speaker = (
-                    f"### [{speech['name']}]({speech['url']})"
-                    f" ({speech['position']})"
-                )
-                processed.append("\n\n".join((speaker, speech["response"])))
+            if "response" in speech:
+                if speech["name"]:
+                    speaker = (
+                        f"### [{speech['name']}]({speech['url']})"
+                        f" ({speech['position']})"
+                    )
+                    processed.append(
+                        "\n\n".join((speaker, speech["response"]))
+                    )
+                else:
+                    # if no speaker, return placeholder and response
+                    speaker = "### No speaker assigned"
+                    processed.append(
+                        "\n\n".join((speaker, speech["response"]))
+                    )
 
         return "\n\n".join((title, *processed))
 
