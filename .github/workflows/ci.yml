@@ -45,15 +45,15 @@ jobs:
           python -m ruff check .
           python -m ruff format --check .
 
-    #   - name: Generate Report
-    #     run: |
-    #         coverage run -m pytest
-    #         coverage xml
+      - name: Generate Report
+        run: |
+            coverage run -m pytest
+            coverage xml
 
-    #   - name: Upload Coverage to Codecov
-    #     uses: codecov/codecov-action@v3
-    #     with:
-    #         file: ./coverage.xml
-    #         flags: unittests
-    #         verbose: true
-    #         token: ${{secrets.CODECOV_TOKEN}}
+      - name: Upload Coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+            file: ./coverage.xml
+            flags: unittests
+            verbose: true
+            token: ${{secrets.CODECOV_TOKEN}}
