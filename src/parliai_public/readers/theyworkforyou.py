@@ -30,7 +30,7 @@ class Debates(BaseReader):
         Key terms to filter content on. By default, we look for any
         mention of `Office for National Statistics` or `ONS`.
     dates : list[dt.date], optional
-        List of dates from which to pull entries. The `parliai.dates`
+        List of dates from which to pull entries. The `parliai_public.dates`
         module may be of help. If not specified, only yesterday is used.
     outdir : str, default="out"
         Location of a directory in which to write outputs.
@@ -417,7 +417,7 @@ class WrittenAnswers(Debates):
         Key terms to filter content on. By default, we look for any
         mention of `Office for National Statistics` or `ONS`.
     dates : list[dt.date], optional
-        List of dates from which to pull entries. The `parliai.dates`
+        List of dates from which to pull entries. The `parliai_public.dates`
         module may be of help. If not specified, only yesterday is used.
     outdir : str, default="out"
         Location of a directory in which to write outputs.
