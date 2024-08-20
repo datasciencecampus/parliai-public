@@ -41,7 +41,7 @@ jobs:
         if: |
           matrix.python-version == 3.11
         run: |
-          python -m pip install ".[dev]"
+          python -m pip install -e ".[dev]"
           python -m ruff check .
           python -m ruff format --check .
 
