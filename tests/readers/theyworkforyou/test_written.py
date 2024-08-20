@@ -7,7 +7,7 @@ import pytest
 from hypothesis import given, provisional
 from hypothesis import strategies as st
 
-from parliai_public.readers.theyworkforyou import WrittenAnswers
+from parliai_public import WrittenAnswers
 
 from .strategies import (
     st_debate_soups,

@@ -3,7 +3,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-from parliai_public.readers import WrittenAnswers
+from parliai_public import WrittenAnswers
 
 
 def test_read_metadata_from_lead_2024_02_29_16305():

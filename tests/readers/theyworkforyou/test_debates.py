@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup, Tag
 from hypothesis import given, provisional, settings
 from hypothesis import strategies as st
 
-from parliai_public.readers.theyworkforyou import Debates
+from parliai_public import Debates
 
 from ...common import ST_DATES
 from .strategies import (
