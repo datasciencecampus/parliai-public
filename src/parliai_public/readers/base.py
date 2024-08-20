@@ -342,6 +342,8 @@ class BaseReader(metaclass=abc.ABCMeta):
     def instantiate_llm(self) -> None:
         """Instantiate LLM object per user specification."""
 
+        # Temporary override to default to Gemma (known/tested LLM)
+        self.llm_name = "gemma"
         self.llm = ChatOllama(model=self.llm_name, temperature=0)
 
         return None
