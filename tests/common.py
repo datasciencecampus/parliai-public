@@ -52,7 +52,7 @@ def default_llm() -> ChatOllama:
     """Instantiate default LLM object for use in testing."""
 
     llm = ChatOllama(
-        model_name="gemma",
+        model="gemma",
         temperature=0,
         # max_output_tokens=2048,
     )
