@@ -4,7 +4,7 @@ import datetime as dt
 from unittest import mock
 
 import pytest
-from hypothesis import given, provisional
+from hypothesis import HealthCheck, given, provisional, settings
 from hypothesis import strategies as st
 
 from parliai_public.readers import Debates, WrittenAnswers
@@ -15,6 +15,7 @@ ST_OPTIONAL_STRINGS = st.one_of((st.just(None), ST_FREE_TEXT))
 YESTERDAY = TODAY - dt.timedelta(days=1)
 
 
+@settings(suppress_health_check=(HealthCheck.too_slow,))
 @given(
     st.sampled_from((ToyReader, Debates, WrittenAnswers)),
     st.lists(provisional.urls(), max_size=5),
