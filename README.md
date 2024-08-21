@@ -55,7 +55,9 @@ Once pre-commits are activated, whenever you commit to this repository a series 
 ## Usage
 [theyworkforyou.com](https://www.theyworkforyou.com)
 
-By default, parliamentary content from the previous day (and anything so far on the current day) will be reviewed. However, a number of flags are available for use from the command line. The main time filtering behaviours can be summarised as follows:
+Although this product started out for internal use - with **Office for National Statistics** and **ONS** as search terms - users can specify keywords in this public edition. By amending the `keywords` variable in the `src.parliai_public._config.base.toml`, a parliamentary coverage report for different organisations, people or themes can be generated.
+
+By default, parliamentary content from the previous day (and anything so far on the current day) will be reviewed. However, a number of flags are available for use from the command line to access historical content (as long as it is still available at source). The main time filtering behaviours can be summarised as follows:
 
 - previous day (default) e.g.
 
