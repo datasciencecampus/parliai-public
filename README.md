@@ -1,5 +1,5 @@
 <!--- Badges start --->
-<img src="https://img.shields.io/badge/repo%20status-in%20development%20(caution)-red" alt="Repository status is still in development (caution required)"/>
+<img src="https://img.shields.io/badge/repo%20status-in%20development%20(caution)-red" alt="Repository status is still in development (caution required)"/> <a href="https://codecov.io/gh/datasciencecampus/parliai-public" > <img src="https://codecov.io/gh/datasciencecampus/parliai-public/branch/dev/graph/badge.svg?token=L5kBT7NP4R"/></a>
 
 <!--- Badges end --->
 
