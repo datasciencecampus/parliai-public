@@ -46,7 +46,7 @@ class BaseReader(metaclass=abc.ABCMeta):
         Key terms to filter content on. By default, we look for any
         mention of `Office for National Statistics` or `ONS`.
     dates : list[dt.date], optional
-        List of dates from which to pull entries. The `parliai.dates`
+        List of dates from which to pull entries. The `parliai_public.dates`
         module may be of help. If not specified, only yesterday is used.
     outdir : str, default="out"
         Location of a directory in which to write outputs.
@@ -342,6 +342,8 @@ class BaseReader(metaclass=abc.ABCMeta):
     def instantiate_llm(self) -> None:
         """Instantiate LLM object per user specification."""
 
+        # Temporary override to default to Gemma (known/tested LLM)
+        self.llm_name = "gemma"
         self.llm = ChatOllama(model=self.llm_name, temperature=0)
 
         return None
