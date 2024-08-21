@@ -85,6 +85,10 @@ $ python scripts/theyworkforyou.py -d 2024-05-24 -n 3
 
 Additionally, the `-w` or `--weekly` flag can be used to generate a report for the previous week e.g. a Wednesday to a Wednesday. The `-f` or `--form` flag can also be applied to specify a preferred date format (other than the default of %Y-%m-%d).
 
+### Accuracy
+An additional step has been added, at the post-processing stage, to verify LLM responses as being direct extracts from the original transcripts. Comparisons are made by sentence once all punctuation has been removed. Where this condition is not satisfied, the LLM response(s) is still used in the final report but a user warning is appended as a reminder to exercise caution when consuming AI-generated content.
+![LLM Content Warning](docs/images/llm-content-warning.png)
+
 ### Workflow
 ![Illustrative technical workflow](docs/images/parliai-public-workflow.png)
 
