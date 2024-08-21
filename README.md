@@ -55,7 +55,9 @@ Once pre-commits are activated, whenever you commit to this repository a series 
 ## Usage
 [theyworkforyou.com](https://www.theyworkforyou.com)
 
-By default, parliamentary content from the previous day (and anything so far on the current day) will be reviewed. However, a number of flags are available for use from the command line. The main time filtering behaviours can be summarised as follows:
+Although this product started out for internal use - with **Office for National Statistics** and **ONS** as search terms - users can specify keywords in this public edition. By amending the `keywords` variable in the `src.parliai_public._config.base.toml`, a parliamentary coverage report for different organisations, people or themes can be generated.
+
+By default, parliamentary content from the previous day (and anything so far on the current day) will be reviewed. However, a number of flags are available for use from the command line to access historical content (as long as it is still available at source). The main time filtering behaviours can be summarised as follows:
 
 - previous day (default) e.g.
 
@@ -82,6 +84,10 @@ $ python scripts/theyworkforyou.py -d 2024-05-24 -n 3
 ```
 
 Additionally, the `-w` or `--weekly` flag can be used to generate a report for the previous week e.g. a Wednesday to a Wednesday. The `-f` or `--form` flag can also be applied to specify a preferred date format (other than the default of %Y-%m-%d).
+
+### Accuracy
+An additional step has been added, at the post-processing stage, to verify LLM responses as being direct extracts from the original transcripts. Comparisons are made by sentence once all punctuation has been removed. Where this condition is not satisfied, the LLM response(s) is still used in the final report but a user warning is appended as a reminder to exercise caution when consuming AI-generated content.
+![LLM Content Warning](docs/images/llm-content-warning.png)
 
 ### Workflow
 ![Illustrative technical workflow](docs/images/parliai-public-workflow.png)

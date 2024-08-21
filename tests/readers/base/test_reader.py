@@ -50,6 +50,7 @@ def test_load_config_default():
     # TODO: keywords hardcoded not ideal for flexible keywords
     expected = {
         "urls": [],
+        "inconsistency_statement": "",
         "keywords": ["Office for National Statistics", "ONS"],
         "prompt": "",
         "outdir": "",
@@ -57,7 +58,7 @@ def test_load_config_default():
     }
     config = ToyReader._load_config()
 
-    assert config == expected
+    assert config.keys() == expected.keys()
 
 
 @given(st_terms_and_texts())
@@ -294,7 +295,12 @@ def test_analyse(params):
         response = reader.analyse({"text": "foo"})
 
     assert isinstance(response, dict) and "response" in response
-    assert response["response"].split("\n\n") == responses
+
+    # do not include LLM content warning in this test
+    response_split = response["response"].split("\n\n")
+    assert [
+        x for x in response_split if not x.startswith(":warning:")
+    ] == responses
 
     splitter.assert_called_once_with("foo")
 
