@@ -3,3 +3,5 @@ keywords = ["Office for National Statistics", "ONS"]
 prompt = ""
 llm_name = ""
 outdir = ""
+
+inconsistency_statement = """:warning: **Inconsistencies between the LLM response and the original transcript have been detected. This does necessarily mean that this report entry is erroneous but you are strongly urged to exercise caution. Please click the link provided to check the original transcript at source.**"""

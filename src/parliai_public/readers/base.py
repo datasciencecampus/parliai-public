@@ -72,11 +72,13 @@ class BaseReader(metaclass=abc.ABCMeta):
         prompt: None | str = None,
         llm_name: None | str = None,
         llm: None | ChatOllama = None,
+        inconsistency_statement: None | str = None,
     ) -> None:
         self.urls = urls
-        self.terms = (
-            terms
-            or toml.load("src/parliai_public/_config/base.toml")["keywords"]
+        base_config = toml.load("src/parliai_public/_config/base.toml")
+        self.terms = terms or base_config["keywords"]
+        self.inconsistency_statement = (
+            inconsistency_statement or base_config["inconsistency_statement"]
         )
         self.dates = dates or [dt.date.today() - dt.timedelta(days=1)]
         self.outdir = outdir
@@ -369,6 +371,12 @@ class BaseReader(metaclass=abc.ABCMeta):
         for chunk in chunks:
             if self.check_contains_terms(chunk.page_content):
                 response = self._analyse_chunk(chunk)
+
+                # failed check
+                if not self._check_response(response, chunk):
+                    response += f"\n\n{self.inconsistency_statement}"
+                    print("LLM response inconsistent with source.")
+
                 responses.append(response)
 
         transcript["response"] = "\n\n".join(responses)
@@ -463,6 +471,40 @@ class BaseReader(metaclass=abc.ABCMeta):
             response = self.clean_response(response)
 
         return response
+
+    def _check_response(self, response: str, chunk: Document) -> bool:
+        """Check if LLM response appears verbatim in original text.
+
+        Parameters
+        ----------
+        response : str
+            LLM response, lightly formatted.
+        chunk : langchain.docstore.document.Document
+            Document with the chunk contents.
+
+        Returns
+        -------
+        passed : bool
+            True/False the LLM response is present exactly in the original.
+        """
+
+        # TODO: string formatting function to reduce code
+        original = chunk.page_content.lower()
+        original = re.sub(r"[^\w\s]", "", original)
+
+        passed = False
+
+        for el in response.split(". "):
+            el = el.lower()
+            el = re.sub(r"[^\w\s]", "", el)
+
+            if el.lower() not in original:
+                passed = False
+                return passed
+            else:
+                passed = True
+
+        return passed
 
     def save(self, page: dict) -> None:
         """
