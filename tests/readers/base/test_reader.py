@@ -323,10 +323,7 @@ def test_split_text_into_chunks(text, size, overlap):
     """
     Test the text splitter method.
 
-    Currently, we do not do any rigorous testing since we are using the
-    wrong splitter. For details, see:
-
-    https://github.com/datasciencecampus/parli-ai/issues/72
+    Currently, we do not do any rigorous testing. Work in progress.
     """
 
     with warnings.catch_warnings():
