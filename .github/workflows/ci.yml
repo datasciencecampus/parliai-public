@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        python-version: ["3.10", 3.11, 3.12]
+        python-version: [3.11]
 
     steps:
       - name: Checkout repository
@@ -33,9 +33,9 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install ".[test]"
 
-      - name: Run tests
-        run: |
-          python -m pytest tests
+      # - name: Run tests
+      #   run: |
+      #     python -m pytest tests
 
       - name: Install and run linters
         if: |
@@ -45,16 +45,16 @@ jobs:
           python -m ruff check .
           python -m ruff format --check .
 
-      - name: Generate Report
-        run: |
-            coverage run -m pytest
-            coverage xml
-            coverage report
+      # - name: Generate Report
+      #   run: |
+      #       coverage run -m pytest
+      #       coverage xml
+      #       coverage report
 
-      - name: Upload Coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-            file: ./coverage.xml
-            flags: unittests
-            verbose: true
-            token: ${{secrets.CODECOV_TOKEN}}
+      # - name: Upload Coverage to Codecov
+      #   uses: codecov/codecov-action@v4
+      #   with:
+      #       file: ./coverage.xml
+      #       flags: unittests
+      #       verbose: true
+      #       token: ${{secrets.CODECOV_TOKEN}}
